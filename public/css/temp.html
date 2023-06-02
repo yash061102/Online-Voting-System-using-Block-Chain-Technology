@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic Popup Forms Example</title>
+    <style>
+      /* Popup container style */
+      .popup {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Popup content style */
+      .popup-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+      }
+
+      /* Close button style */
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      /* Close button hover style */
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Dynamically generated buttons -->
+    <div id="button-container">
+      <!-- Buttons will be added here -->
+    </div>
+
+    <!-- Popup container -->
+    <div id="popup-container" class="popup">
+      <!-- Popup content -->
+      <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popup-title"></h2>
+        <form id="popup-form">
+          <!-- Form fields go here -->
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Get the button container
+      var buttonContainer = document.getElementById("button-container");
+
+      // Function to generate buttons and attach click event listener
+      function generateButtons(buttonData) {
+        // Loop through the button data and create a button for each item
+        for (var i = 0; i < buttonData.length; i++) {
+          // Create a button element
+          var button = document.createElement("button");
+          button.innerHTML = buttonData[i].name;
+
+          // Attach click event listener to open the corresponding popup form
+          button.addEventListener("click", function() {
+            // Get the button name
+            var buttonName = this.innerHTML;
+
+            // Get the corresponding form data from the button data
+            var formData = buttonData.find(function(data) {
+              return data.name === buttonName;
+            }).form;
+
+            // Set the popup title and form fields
+            document.getElementById("popup-title").innerHTML = buttonName;
+            document.getElementById("popup-form").innerHTML = formData;
+
+            // Open the popup
+            openPopup();
+          });
+
+          // Add the button to the button container
+          buttonContainer.appendChild(button);
+        }
+      }
+
+      // Function to open the popup
+      function openPopup() {
+        document.getElementById("popup-container").style.display = "block";
+      }
+
+      // Function to close the popup
+      function closePopup() {
+        document.getElementById("popup-container").style.display = "none";
+      }
+
+      // Sample button data
+      var sampleButtonData = [
+        {
+          name: "Button 1",
+          form: "<label>Field 1:</label<input type='text' name='field1'><br><br><label>Field 2:</label><input type='text' name='field2'>"
+    },
+    {
+      name: "Button 2",
+      form: "<label>Field A:</label><input type='text' name='fieldA'><br><br><label>Field B:</label><input type='text' name='fieldB'>"
+    },
+    {
+      name: "Button 3",
+      form: "<label>Field X:</label><input type='text' name='fieldX'><br><br><label>Field Y:</label><input type='text' name='fieldY'>"
+    }
+  ];
+
+  // Generate buttons using the sample button data
+  generateButtons(sampleButtonData);
+</script>
+</body>
+</html>
+

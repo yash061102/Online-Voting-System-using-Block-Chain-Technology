@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidate Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/public/css/dashboard.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+</head>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='fa fa-bars'></i>
+      </span>
+      <img src="public/images/logo.png" class="logo" alt="">
+      <h3 class="hide" style="color:#4B96FC;">Vote<span style="color:black;">Chain</span></h3>
+    </div>
+
+    <div class="search" style="display:none;">
+      
+    </div>
+    <br><br>
+
+    <div class="sidebar-links">
+        <div >
+            <a href="/userinfo">
+              <i class='fa fa-book icon'></i>
+              <span class="link hide">User Manual</span>
+            </a>
+          </div>
+          <div>
+            <a href="#" class="active">
+              <i class='fa-sharp fa-solid fa-address-card icon'></i>
+              <span class="link hide">Registration</span>
+            </a>
+        </div>
+        <div>
+            <a href="/adminlanding">
+              <i class='fa fa-vote-yea icon'></i>
+              <span class="link hide">Voting Area</span>
+            </a>
+        </div>
+        <div>
+          <a href="/result">
+            <i class='fa fa-poll icon'></i>
+            <span class="link hide">Result</span>
+          </a>
+      </div>
+
+  
+    </div>
+    <div class="sidebar-footer">
+        <hr style="margin-bottom:30px !important;">
+      
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="./public/images/admin.png" alt="">
+          <div class="admin-info">
+            <h3>User</h3>
+            <h5></h5>
+          </div>
+        </div>
+        <form action="/userlogout?_method=DELETE" method="POST">
+            <button type="submit" class="logout"> <i class='fa fa-sign-out'></i></button>
+        </form>
+
+      </div>
+     
+    </div>
+  </nav>
+
+
+  <main>
+    <div class="table-container" style="height:480px; margin-top:130px;">
+        <div class="form-container">
+        <ul class="responsive-form" id="addcandidate">
+            <div class="content">
+            <h2 style="padding-top: 15px;">Voter Register</h2>
+            </div>
+
+            <li class="table-header">
+                <div class="col col-8" >Registration Form</div>
+            </li>
+            <div style="height:10px;"></div>
+            <div class="container2">
+                <form action="/voterregister" method="POST">
+                    <li class="table-row">
+                        <div class="col col-8" ><input type="text" name="adhar" id="adhar" class="control" required placeholder="Aadhar Number"/></div>
+                    </li>
+                    <li class="table-row">
+                        <div class="col col-8" ><input type="text" name="txid" id="txid" class="control" placeholder="Transaction Id" required/></div>
+                    </li>
+                    <br>
+                    <div class="mybtn" style="display:flex; justify-content:center;">
+                        <button class="submit">Register</button>
+                    </div>  
+                    </form>
+                    <% if(locals.message) { %>
+                        <%= message %>
+                        <% } %>
+            </div>
+        </ul>
+    </div>
+    </div>
+   <br>  
+    
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+
+  <script src="js/app.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+  <script src="./node_modules/@truffle/contract/browser-dist/truffle-contract.min.js"></script>
+  <script src="/public/js/app.js"></script>
+</body>
+</html>

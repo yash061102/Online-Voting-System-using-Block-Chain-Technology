@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Manual</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/public/css/dashboard.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+</head>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='fa fa-bars'></i>
+      </span>
+      <img src="public/images/logo.png" class="logo" alt="">
+      <h3 class="hide" style="color:#4B96FC;">Vote<span style="color:black;">Chain</span></h3>
+    </div>
+
+    <div class="search" style="display:none;">
+      
+    </div>
+    <br><br>
+
+    <div class="sidebar-links">
+      <div >
+          <a href="#" class="active">
+            <i class='fa fa-book icon'></i>
+            <span class="link hide">User Manual</span>
+          </a>
+        </div>
+        <div>
+          <a href="/voterregister">
+            <i class='fa-sharp fa-solid fa-address-card icon'></i>
+            <span class="link hide">Registration</span>
+          </a>
+      </div>
+      <div>
+          <a href="/adminlanding">
+            <i class='fa fa-vote-yea icon'></i>
+            <span class="link hide">Voting Area</span>
+          </a>
+      </div>
+      <div>
+        <a href="/result">
+          <i class='fa fa-poll icon'></i>
+          <span class="link hide">Result</span>
+        </a>
+    </div>
+
+  
+    </div>
+    <div class="sidebar-footer">
+        <hr style="margin-bottom:30px !important;">
+      
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="./public/images/admin.png" alt="">
+          <div class="admin-info">
+            <h3>User</h3>
+            <h5></h5>
+          </div>
+        </div>
+        <form action="/userlogout?_method=DELETE" method="POST">
+            <button type="submit" class="logout"> <i class='fa fa-sign-out'></i></button>
+        </form>
+      </div>
+     
+    </div>
+  </nav>
+
+
+  <main>
+    <div class="table-container" style="margin-top: 10px; height:750px">
+        <ul class="responsive-table" id="viewcandidate">
+          <br>
+          <li class="table-header">
+            <div class="col col-8"><h3 style="text-transform: none; font-size:20px;">Voting Guidelines</h2></h2>
+          </li>
+            
+            <div style="height:10px;"></div>
+            <div style="margin:20px;">
+           <p style="font-weight:500; text-align:justify; font-size:13px">Welcome to the  online Voting Portal. This system is designed to provide a secure and transparent method for conducting elections. In this manual, we will explain how to use the system as a user.
+            <br><br>
+            <p style="font-size:13px">
+            <strong style="color:var(--main-color)">Registration:</strong>
+            <br>
+            After successful login into the system, first you need to have an Aadhar number and a transaction ID. These details will be used to verify your identity during the registration process. Once you have these details, follow the below steps:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; a. Click on ‘Registration’ option provide at left sidebar.
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; b. Enter your Aadhar number and transaction ID in the provided fields.
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; c. Click on the ‘Register’ button.
+            <br><br>
+            <strong style="color:var(--main-color)">Voting Area</strong>
+            <br>
+            During the voting period, you can cast your vote by following the below steps:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; a. Click on ‘Voting Area’ option provide at left sidebar.
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; b. You can see list of the candidates. 
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; c. Click on ‘Vote’ button provided to whom you want to want.
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; d. In popup menu click confirm button to cast vote.
+            
+            <br><br>
+            <strong style="color:var(--main-color)">Results</strong>
+            <br>
+            After the election is over, you can view the results of the election by following the below steps:
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;  a. Click on the 'Results' button.
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; b. The results will be displayed on the screen.
+            <br><br>
+            <strong style="color:black;">Note:</strong> The administrator of the system will change the phase of the system from registration to voting and then to election over. User can see updates accordingly.
+          </p>
+           
+        </p>
+          </div>
+        </ul>
+    
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+
+  <script src="js/app.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+  <script src="./node_modules/@truffle/contract/browser-dist/truffle-contract.min.js"></script>
+  <script src="/public/js/app.js"></script>
+
+</body>
+</html>

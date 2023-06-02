@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Phase</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/public/css/dashboard.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+</head>
+
+<body>
+    <nav>
+        <div class="sidebar-top">
+          <span class="shrink-btn">
+            <i class='fa fa-bars'></i>
+          </span>
+          <img src="public/images/logo.png" class="logo" alt="">
+          <h3 class="hide" style="color:#4B96FC;">Vote<span style="color:black;">Chain</span></h3>
+        </div>
+    
+        <div class="search" style="display:none;">
+          
+        </div>
+        <br><br>
+    
+        <div class="sidebar-links">
+          <div >
+              <a href="/Candidatedetails" >
+                <i class='fa fa-users icon'></i>
+                <span class="link hide">Candidates</span>
+              </a>
+            </div>
+            <div>
+              <a href="/adminvoterreg">
+                <i class='fa fa-check-square icon'></i>
+                <span class="link hide">Verify Voter</span>
+              </a>
+          </div>
+          <div>
+              <a href="#"  class="active">
+                <i class='fa fa-exchange icon'></i>
+                <span class="link hide">Change Phase</span>
+              </a>
+          </div>
+    
+      
+        </div>
+    
+        <div class="sidebar-footer">
+          <hr style="margin-bottom:30px !important;">
+
+          <div class="admin-user tooltip-element" data-tooltip="1">
+            <div class="admin-profile hide">
+              <img src="./public/images/admin.png" alt="">
+              <div class="admin-info">
+                <h3>Admin</h3>
+                <h5></h5>
+              </div>
+            </div>
+            <a href="/" class="log-out">
+              <i class='fa fa-sign-out'></i>
+           </a>
+          </div>
+
+        </div>
+      </nav>
+      <main>
+        <div class="phase-container">
+          <ul class="responsive-table">
+            <br>
+            <h2 class="card-title">CHANGE PHASE</h2>
+            <br>
+            <div class="card-body">
+              <div class="alert">
+                  <h1 id="varphase"> </h1>
+              </div>
+              <br><br>
+              <div class="btn-container">
+              <div class="mybtn">
+                <button type="submit" class="submit" style="width:200px;" onclick="openconfirmation()">Change Phase</button>
+
+                 <!-- <button type="submit" class="submit" style="width:200px;" onclick="App.changeState()">Change Phase</button> -->
+            </div>
+          </div>
+          </div>
+         </div>
+          </ul>
+          <div class="overlay" id="confirmation">
+          <div class="popup-container" >
+          <ul class="responsive-table" >
+            <br>
+            <h2 class="card-title" style="font-size:20px; font-weight:500;">Are you certain that you want to proceed with changing the current voting phase?</h2>
+            <br>
+            <div class="btn-container">
+              <button type="button"  class="close" onclick="closeconfirmation()">Close</button>
+              <button type="submit" class="submit" id="confirm" onclick="App.changeState()">Confirm</button>
+            </div>
+          </ul>
+        </div>
+      </div>
+        </main>
+        <script>
+          function openconfirmation() {
+          document.getElementById("confirmation").style.display = "block";
+          }
+
+          function closeconfirmation() {
+            document.getElementById("confirmation").style.display = "none";
+          }
+          const confirm = document.getElementById("confirm")
+          confirm.addEventListener("click",function(){setTimeout(closeconfirmation, 2000);
+          });
+          
+
+        </script>
+
+
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+ 
+    <script src="js/app.js"></script>
+    <script src="public/js/app.js"></script>
+
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+    <script src="./node_modules/@truffle/contract/browser-dist/truffle-contract.min.js"></script>
+
+</body>
+
+</html>

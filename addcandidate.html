@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/public/css/dashboard.css">
+</head>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='fa fa-bars'></i>
+      </span>
+      <img src="public/images/logo.png" class="logo" alt="">
+      <h3 class="hide" style="color:#4B96FC;">Vote<span style="color:black;">Chain</span></h3>
+    </div>
+
+    <div class="search" style="display:none;">
+      
+    </div>
+    <br><br>
+
+    <div class="sidebar-links">
+      <div >
+          <a href="#" class="active">
+            <i class='fa fa-users icon'></i>
+            <span class="link hide">Candidates</span>
+          </a>
+        </div>
+        <div>
+          <a href="/adminvoterreg">
+            <i class='fa fa-check-square icon'></i>
+            <span class="link hide">Verify Voter</span>
+          </a>
+      </div>
+      <div>
+          <a href="/changephase">
+            <i class='fa fa-exchange icon'></i>
+            <span class="link hide">Change Phase</span>
+          </a>
+      </div>
+
+  
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="#" class="account tooltip-element" data-tooltip="0">
+        <i class='bx bx-user'></i>
+      </a>
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="./public/images/admin.png" alt="">
+          <div class="admin-info">
+            <h3>John Doe</h3>
+            <h5>Admin</h5>
+          </div>
+        </div>
+        <a href="/" class="log-out">
+          <i class='fa fa-sign-out'></i>
+        </a>
+      </div>
+     
+    </div>
+  </nav>
+
+
+  <main>
+    
+    <div class="container">
+      <form onsubmit="App.addCandidate(); return false;">
+         
+              <div class="input-field">
+                <input type="text" id="name" class="form-control" required />
+                <label class="form-label" for="form3Example1">Name</label>
+              </div>
+              <div class="input-field">
+                <input type="text" id="party" class="form-control" required />
+                <label class="form-label" for="form3Example2">Party</label>
+              </div>
+              <div class="input-field">
+                <input type="text" id="age" class="form-control" required />
+                <label class="form-label" for="form3Example1">Age</label>
+              </div>
+              <div class="input-field">
+                <input type="text" id="qualification" class="form-control" required />
+                <label class="form-label" for="form3Example2">Qualification</label>
+              </div>
+          <button type="submit"  class="">Add</button>
+          </div>
+        </form>
+
+  </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+
+  <script src="js/app.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+  <script src="./node_modules/@truffle/contract/browser-dist/truffle-contract.min.js"></script>
+  <script src="/public/js/app.js"></script>
+</body>
+</html>

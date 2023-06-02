@@ -1,0 +1,363 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@100;200;300;400;600;700&family=Rubik+Moonrocks&family=Titan+One&display=swap');
+
+/* Global ============= */
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Poppins", serif !important;
+
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.container {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+button {
+  font-family: "Poppins", serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: var(--blue);
+  padding: 1em 2em;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: var(--smooth);
+}
+
+p {
+  line-height: 40px;
+}
+.pt {
+  padding-top: 10%;
+}
+.section__heading {
+  text-align: center;
+  padding: 0 15px;
+}
+.section__tag {
+  font-size: 1.75rem;
+  /* font-family: "Red Hat Display", serif; */
+  text-transform: capitalize;
+  color: var(--blue);
+}
+.section__title {
+  font-size: 3.125rem;
+  /* font-family: "Red Hat Display", serif; */
+  text-transform: capitalize;
+  color: var(--green);
+  margin-bottom: 18px;
+}
+.section__detail {
+  font-size: 1.25rem;
+  /* font-family: "Domine", serif; */
+  color: var(--gray);
+  max-width: 700px;
+  margin: 0 auto;
+}
+:root {
+  --blue: #4B96FC;
+  --green: #035755;
+  --gray: #4b4f51;
+  --pink: #fee6e5;
+  --smooth: all 0.3s ease-in;
+  --shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.2);
+}
+
+/* Header ============= */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 4;
+  display: none;
+}
+
+#overlay.show {
+  display: initial;
+}
+
+header {
+  background-color: var(--light-pink);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 15px 55px 15px;
+  background-color: var(--light-pink);
+}
+
+/* logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo img {
+  width: 63px;
+}
+
+.navbar__logo p {
+  /* font-family: "Red Hat Display", serif; */
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-left: 14px;
+}
+
+/* menu */
+.navbar__links {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  transform: translateX(-100%);
+  background-color: var(--blue);
+  opacity: 0;
+  z-index: 5;
+  transition: var(--smooth);
+}
+
+.navbar__links.navbar__open {
+  transform: translateX(0);
+  opacity: 1;
+  transition: var(--smooth);
+}
+.navbar__link {
+  font-size: 1.125rem;
+  margin: 55px;
+  list-style: none;
+}
+
+.navbar__link a {
+  /* font-family: "Domine", serif; */
+  color: #fff;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: var(--smooth);
+}
+
+.navbar__link a:hover {
+  color: var(--green);
+  transition: var(--smooth);
+}
+
+.navbar__btn {
+  font-size: 1.125rem;
+  margin-left: 35px;
+  border: 2px solid var(--pink);
+}
+.navbar__btn:hover {
+  color: var(--blue);
+  background-color: var(--light-pink);
+  transition: var(--smooth);
+}
+/* icon  */
+.navbar__ham {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: var(--smooth);
+  z-index: 6;
+}
+
+.navbar__icon {
+  width: 45px;
+  height: 6px;
+  background: var(--blue);
+  border-radius: 5px;
+  transition: var(--smooth);
+  position: relative;
+}
+
+.navbar__icon:before,
+.navbar__icon:after {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 6px;
+  background: var(--blue);
+  border-radius: 5px;
+  transition: var(--smooth);
+}
+
+.navbar__icon:before {
+  transform: translateY(-12px);
+}
+
+.navbar__icon:after {
+  transform: translateY(12px);
+}
+
+/* icon animation  */
+.open .navbar__icon {
+  transform: translateX(-50px);
+  background: transparent;
+}
+
+.open .navbar__icon:before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+
+.open .navbar__icon:after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+@media (min-width: 62em) {
+  .navbar__links {
+    position: initial;
+    transform: translateX(0);
+    opacity: 1;
+    background-color: var(--light-pink);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .navbar__link {
+    margin: 0 25px;
+  }
+  .navbar__link a {
+    color: var(--green);
+  }
+  .navbar__link a:hover {
+    color: var(--blue);
+  }
+  .navbar__btn {
+    margin-left: 0;
+    border: none;
+  }
+  .navbar__ham {
+    display: none;
+  }
+}
+
+/* Banner ============= */
+#banner .container {
+  background-image: linear-gradient(to bottom, var(--light-pink), #fff);
+}
+
+.banner__desc {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.banner__tag {
+  font-size: 1.375rem;
+  font-weight: bold;
+  /* font-family: "Red Hat Display", serif; */
+  color: var(--blue);
+  text-transform: uppercase;
+  padding: 5px 0;
+}
+
+.banner__title {
+  font-size: 2.625rem;
+  font-weight: bold;
+  /* font-family: "Red Hat Display", serif; */
+  color: var(--green);
+  text-transform: uppercase;
+  padding: 5px 0;
+}
+
+.banner__detail {
+  font-size: 1.5rem;
+  /* font-family: "Domine", serif; */
+  color: var(--gray);
+  text-transform: capitalize;
+  margin-top: 25px;
+}
+.temp{
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  margin-left: 0 !important;
+}
+
+.banner__btn1 {
+  margin-top: 54px;
+}
+
+.banner__btn1 button {
+  font-size: 1.5rem;
+}
+.banner__btn1 button:hover {
+  background-color: white !important;
+  color: #4B96FC;
+  border: 2px solid #4B96FC;
+  transition: var(--smooth);
+}
+.banner__btn2 {
+  margin-top: 54px;
+}
+
+.banner__btn2 button {
+  background-color: white !important;
+  color: #4B96FC;
+  border: 2px solid #4B96FC;
+  font-size: 1.5rem;
+}
+.banner__btn2 button:hover {
+  background-color: var(--blue) !important;
+  border: none;
+  color: white !important;
+  transition: var(--smooth);
+}
+
+@media (min-width: 62em) {
+  .temp{
+    display:flex;
+    justify-content:space-between;
+    width: 80%;
+    margin-left: 10%;
+
+  }
+  #banner .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .banner__img {
+    order: 2;
+  }
+  .banner__desc {
+    order: 1;
+    text-align: initial;
+    width: 60%;
+    padding: 0 0 0 200px;
+  }
+  .banner__detail {
+    max-width: 800px;
+    width: 100%;
+  }
+}
